@@ -9,14 +9,14 @@
    #- common
    
 - name: deploy MySQL and configure databases
-  hosts: dbservers
+  hosts: 127.0.0.1
   remote_user: root
    
   roles:
    - db
    
 - name: deploy Apache, PHP and configure website code
-  hosts: webservers
+  hosts: 127.0.0.1
   remote_user: root
    
   roles:
