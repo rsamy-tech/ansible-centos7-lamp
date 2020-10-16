@@ -12,9 +12,7 @@
   hosts: 127.0.0.1
   remote_user: root
   become: true
-  become_method: sudo su
-  become_user: root
-   
+     
   roles:
    - db
    
@@ -22,8 +20,6 @@
   hosts: 127.0.0.1
   remote_user: root
   become: true
-  become_method: sudo su
-  become_user: root
-  
+    
   roles:
    - web
