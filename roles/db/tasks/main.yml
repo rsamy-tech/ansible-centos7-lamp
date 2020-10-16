@@ -31,7 +31,7 @@
   tags: my_cnf
 
 - name: Set the root password for MySQL Database
-  command:  mysql -u root --connect-expired-password --execute="SET PASSWORD = PASSWORD('{{ masterpassword }}');"
+  command:  mysql -u root --connect-expired-password --execute="SET PASSWORD = PASSWORD '{{ masterpassword }}';"
     
 -  set_fact:
     mysql_root_pw: "{{ masterpassword }}"
