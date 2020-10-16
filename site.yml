@@ -10,7 +10,8 @@
    
 - name: deploy MySQL and configure databases
   hosts: dbservers
-  remote_user: root
+  connection: local
+  #remote_user: root
   become: true
      
   roles:
@@ -18,7 +19,8 @@
    
 - name: deploy Apache, PHP and configure website code
   hosts: webservers
-  remote_user: root
+  connection: local
+  #remote_user: root
   become: true
     
   roles:
