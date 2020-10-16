@@ -30,10 +30,14 @@
             mode=0400
   tags: my_cnf
 
+- name: Find temporary password
+  shell: "echo `grep 'temporary.*root@localhost' /var/log/mysqld.log | sed's/.*root@localhost: //'`"
+  register: mysql_root_password_temp
+  tags: register
+
 - name: Set the root password for MySQL Database
   command:  mysql -u root --connect-expired-password --execute="SET PASSWORD = PASSWORD '{{ masterpassword }}';"
-  priv: '*.*:ALL,GRANT'
-  
+    
 -  set_fact:
     mysql_root_pw: "{{ masterpassword }}"
 
