@@ -34,7 +34,7 @@
   
 - name: install .my.cnf with credentials
   template: src=my.cnf.j2 dest=/root/.my.cnf
-            mode=0400
+            mode=0600
   tags: my_cnf
 
 - name: Set the root password for MySQL Database
