@@ -9,7 +9,7 @@
    - php-mysql
 
 - name: yum update
-    action: yum name=* state=latest
+  action: yum name=* state=latest
   - name: yum install epel
     yum: name=epel-release.noarch state=latest
   - name: download remi repo rpm
