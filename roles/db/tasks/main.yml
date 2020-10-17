@@ -30,12 +30,12 @@
             mode=0600
   tags: my_cnf
 
-#- name: update mysql root password for all root accounts
- # mysql_user: name=root host={{ item }} password={{ mysql_root_pw }}
-  #with_items:
-   #- 127.0.0.1
-   #- ::1
-   #- localhost  
+- name: update mysql root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_pw }}
+  with_items:
+   - 127.0.0.1
+   - ::1
+   - localhost  
   
 - name: Set the root password for MySQL Database
   command:  mysql -u root --connect-expired-password --execute="SET PASSWORD = PASSWORD('{{ masterpassword }}');"
