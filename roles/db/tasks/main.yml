@@ -26,11 +26,11 @@
   when: sym.stat.exists == True
   
 - name: update mysql root password for all root accounts
-      mysql_user: name=root host="{{ item }}" password="{{ mysql_root_password }}"
-      with_items:
-        - 127.0.0.1
-        - ::1
-        - localhost  
+  mysql_user: name=root host={{ item }} password={{ mysql_root_password }}
+  with_items:
+   - 127.0.0.1
+   - ::1
+   - localhost  
   
 - name: install .my.cnf with credentials
   template: src=my.cnf.j2 dest=/root/.my.cnf
